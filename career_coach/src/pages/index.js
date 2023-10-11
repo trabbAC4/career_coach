@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google';
 import axios from 'axios';
+import TypingAnimation from '../components/TypingAnimation';
 
 
 
@@ -45,7 +46,7 @@ export default function Home(){
   }
 
   return (
-    <div className = "container mx-auto max-w-[700px]"> 
+    <div className = "container mx-auto max-w-[auto]"> 
       <div className=  "flex flex-col h-screen bg-gray-900"> 
         <h1 className= "bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text text-center py-3 font-bold text-6xl"> Career Coach </h1>
           <div className= "flex-grow p-6"> 
@@ -61,7 +62,7 @@ export default function Home(){
                 </div>
                 </div>
                ))   
-            } 
+                }
           </div> 
             </div> 
 
