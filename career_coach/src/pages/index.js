@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google';
 import axios from 'axios';
 import TypingAnimation from '../components/TypingAnimation';
-
+import HomePage from '../components/HomePage';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -46,9 +46,28 @@ export default function Home(){
   }
 
   return (
-    <div className = "container mx-auto max-w-[auto]"> 
+    <> 
+    <div id = "intro_message"> 
+      <div id= "container">
+        <div id = "left_items"> 
+          <h1 id= "title"> Welcome to Career Coach</h1>
+          <h2 id = "subtitle"> A personalized AI chatbot to help you with your career path </h2>
+          <h2 id = "subtitle"> Scroll down for more information! </h2>
+        </div>
+        <div id = "right_items">
+          <Image src= "/../../r2d2.jpg"
+                  id = "img"
+                  width =  {400}
+                  height=  {600}
+                  alt= "random"
+          /> 
+        </div>
+      </div>
+    </div>
+
+    <div className = "container mx-auto"> 
       <div className=  "flex flex-col h-screen bg-gray-900"> 
-        <h1 className= "bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text text-center py-3 font-bold text-6xl"> Career Coach </h1>
+        <h1 className= "bg-gradient-to-r from-blue-500 to-green-500 text-transparent bg-clip-text text-center py-3 font-bold text-6xl"> Career Coach </h1>
           <div className= "flex-grow p-6"> 
             <div className = "flex flex-col space-y-4">
               {
@@ -62,6 +81,14 @@ export default function Home(){
                 </div>
                 </div>
                ))   
+                }
+                {
+                  isLoading && 
+                    <div key = {chatLog.length} className = "flex justify-start">
+                      <div ClassName = "bg-gray-800 rounded-lg p-4 text-white max-w-sm">
+                        <TypingAnimation />
+                        </div>
+                    </div>
                 }
           </div> 
             </div> 
@@ -79,5 +106,6 @@ export default function Home(){
       </form>
       </div>
     </div> 
+    </> 
   )
 }
